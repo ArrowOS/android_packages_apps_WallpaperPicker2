@@ -97,7 +97,8 @@ public class WallpaperConnection extends IWallpaperConnection.Stub implements Se
             @Nullable WallpaperConnectionListener listener, SurfaceView containerView,
             @Nullable SurfaceView secondaryContainerView) {
         mContext = context.getApplicationContext();
-        mIntent = intent;
+        mIntent = new Intent("android.service.wallpaper.WallpaperService");
+        //mIntent.setPackage("com.android.customization.picker.CustomizationPickerActivity");
         mListener = listener;
         mContainerView = containerView;
         mSecondContainerView = secondaryContainerView;
