@@ -50,6 +50,7 @@ public class WallpaperConnection extends IWallpaperConnection.Stub implements Se
     }
 
     private static final String TAG = "WallpaperConnection";
+    private final String WALLPAPER_SERVICE_NAME = "android.service.wallpaper.WallpaperService";
     private final Activity mActivity;
     private final Intent mIntent;
     private final WallpaperConnectionListener mListener;
@@ -74,8 +75,8 @@ public class WallpaperConnection extends IWallpaperConnection.Stub implements Se
             @Nullable WallpaperConnectionListener listener,
             @Nullable Rect wallpaperPositionInScreen) {
         mActivity = activity;
-        mIntent = new Intent("android.service.wallpaper.WallpaperService");
-        mIntent.setPackage("com.android.customization.picker.CustomizationPickerActivity");
+        mIntent = new Intent(WALLPAPER_SERVICE_NAME);
+        mIntent.setPackage(WALLPAPER_SERVICE_NAME);
         mListener = listener;
         mWallpaperPreviewRect = wallpaperPositionInScreen;
     }
